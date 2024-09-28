@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "startTime": {
+      "type": "string",
+      "format": "iso-date-time",
+      "formatExclusiveMaximum": { "$data": "1/endTime" }
+    },
+    "endTime": {
+      "type": "string",
+      "format": "iso-date-time"
+    }
+  }
+}
