@@ -43,7 +43,7 @@ npm install -D esbuild-ajv ajv
 
 ```ts
 import esbuild from 'esbuild'
-import AjvPlugin from 'esbuild-plugin-ajv'
+import AjvPlugin from 'esbuild-ajv'
 
 esbuild.build({
   /* ... */
@@ -64,12 +64,13 @@ esbuild.build({
 ### Precompile imported schema
 
 ```js
-import validator from './someJsonSchema.json?ajv'
+import * as validationModule from './someJsonSchema.ajv.json'
 
 /**
  * @description use compiled schema in your code
  */
 const validate = (x) => {
+  const { validator } = validationModule
   if (!validator(x)) throw validator.errors
   return x
 }
